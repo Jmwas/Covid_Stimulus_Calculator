@@ -27,6 +27,7 @@ def max_refund(n,kids):
 
 def get_status():
     if (n == 's' and income > 99000) or (n == 'h' and income > 136500) or (n == 'm' and income > 198000):
+
         print(f'Your stimulus refund is', min_refund(kids))
     elif (n == 's' and income > 75000) or (n == 'h' and income > 112500) or (n == 'm' and income > 150000):
         print(f'Your stimulus refund is', med_refund(n, income, kids))
