@@ -1,21 +1,22 @@
 """THIS IS A PROGRAM TO CALCULATE AMOUNT TO BE RECEIVED FROM COVID-19 STIMULUS
 BASED ON INCOME, MARITAL STATUS AND NUMBER OF KIDS"""
 
-def min_refund(kids):
+
+def min_refund(*args):
     return kids * 500
 
 
-def med_refund(n, income, kids):
+def med_refund(*args):
     child_amount = kids * 500
     if n == 's':
-        return round(amountByMaritalStatus['single'] - (((income - 75000) / 100)*5) + child_amount)
+        return round(amountByMaritalStatus['single'] - ((income - 75000) * .05) + child_amount)
     elif n == 'j':
-        return round(amountByMaritalStatus['HOH'] - (((income - 150000) / 100) * 5) + child_amount)
+        return round(amountByMaritalStatus['HOH'] - ((income - 112500) * .05) + child_amount)
     else:
-        return round(amountByMaritalStatus['married'] - (((income - 150000) / 100)*5) + child_amount)
+        return round(amountByMaritalStatus['married'] - ((income - 150000) * .05) + child_amount)
 
 
-def max_refund(n,kids):
+def max_refund(*args):
     child_amount = kids * 500
     if n == 's':
         return amountByMaritalStatus['single'] + child_amount
@@ -36,6 +37,7 @@ def get_status():
 
 
 if __name__ == '__main__':
+
     amountByMaritalStatus = {'single': 1200, 'HOH': 1200, 'married': 2400}
 
     while True:
@@ -59,3 +61,4 @@ if __name__ == '__main__':
 
         get_status()
         break
+
